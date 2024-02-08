@@ -1,7 +1,7 @@
 import express from "express";
 import http from "node:http";
 import path from "node:path";
-import createBareServer from "@tomphttp/bare-server-node";
+import { createBareServer } from "@tomphttp/bare-server-node";
 
 const __dirname = process.cwd();
 const server = http.createServer();
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "static")));
 app.get('/app', (req, res) => {
   res.sendFile(path.join(process.cwd(), './static/app.html'));
 });
-app.get('/~', (req, res) => {
+app.get('/student', (req, res) => {
   res.sendFile(path.join(process.cwd(), './static/loader.html'));
 });
 app.get('/apps', (req, res) => {
@@ -33,6 +33,9 @@ app.get('/lessons', (req, res) => {
 });
 app.get('/credits', (req, res) => {
   res.sendFile(path.join(process.cwd(), './static/credits.html'));
+});
+app.get('/partners', (req, res) => {
+  res.sendFile(path.join(process.cwd(), './static/partners.html'));
 });
 app.use((req, res) => {
   res.statusCode = 404;
