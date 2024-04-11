@@ -8,46 +8,47 @@
     <script src="/assets/js/functions.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6YEQ7Q0XRC"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6YEQ7Q0XRC');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-6YEQ7Q0XRC');
     </script>
     <title>Doge | V4</title>
     <script>
-        window.onload = function() {
-           let encodedAg = localStorage.getItem("agUrl");
-           encodedAg = "/service/" + encodedAg;
-           document.querySelector("#siteurl").src = encodedAg;
+        window.onload = function () {
+
+            let encodedAg = localStorage.getItem("agUrl");
+            encodedAg = "/service/" + encodedAg;
+            document.querySelector("#siteurl").src = encodedAg;
             /* Now.GG */
-           var scriptElement = document.createElement('script');
-           scriptElement.src = '/assets/js/now.js';
-           scriptElement.onload = function() {
-               console.log('Sucessfully loaded Now.GG injection script.');
-           };
-           scriptElement.onerror = function() {
-               console.error('Now.GG injection could not be loaded.');
-           };
-           document.head.appendChild(scriptElement);
-           /* URL Cloaking */
-           function getRandomThreeDigitNumber() {
-               return Math.floor(Math.random() * 900) + 100;
-           }
+            var scriptElement = document.createElement('script');
+            scriptElement.src = '/assets/js/now.js';
+            scriptElement.onload = function () {
+                console.log('Sucessfully loaded Now.GG injection script.');
+            };
+            scriptElement.onerror = function () {
+                console.error('Now.GG injection could not be loaded.');
+            };
+            document.head.appendChild(scriptElement);
+            /* URL Cloaking */
+            function getRandomThreeDigitNumber() {
+                return Math.floor(Math.random() * 900) + 100;
+            }
             function getRandomAlphanumericString(length) {
-               const characters = "abcdefghijklmnopqrstuvw0123456789012345";
-               let result = "";
-               for (let i = 0; i < length; i++) {
-                   result += characters.charAt(Math.floor(Math.random() * characters.length));
-               }
-               return result;
-           }
+                const characters = "abcdefghijklmnopqrstuvw0123456789012345";
+                let result = "";
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result;
+            }
             var randomThreeDigitNumber = getRandomThreeDigitNumber();
-           var randomAlphanumericString = getRandomAlphanumericString(15);
-           var url = "/lessons?pg=" + randomThreeDigitNumber + "#" + randomAlphanumericString;
-           var title = "Google Docs";
+            var randomAlphanumericString = getRandomAlphanumericString(15);
+            var url = "/lessons?pg=" + randomThreeDigitNumber + "#" + randomAlphanumericString;
+            var title = "Google Docs";
             history.pushState({}, title, url);
-       };
-   </script>
+        };
+    </script>
 </head>
 <body>
     <script src="/assets/js/index.js"></script>
@@ -57,9 +58,9 @@
     <script src="/assets/js/ag.js"></script>
     <script>
         window.navigator.serviceWorker
-        .register("/sw.js", {
-            scope: __uv$config.prefix,
-        });
+            .register("/sw.js", {
+                scope: __uv$config.prefix,
+            });
     </script>
     <iframe src="loading.html" id="siteurl" style="position: fixed; inset: 0px; outline: none; border: none; height: 100%; width: 100%; overflow: hidden;"></iframe>
 </body>
